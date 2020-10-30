@@ -21,6 +21,8 @@ function App() {
       return{...prevState,s:s}
     })
   }
+
+
   const onSelect = (e) => {
     let select = e.target.value
     
@@ -28,16 +30,8 @@ function App() {
       return {...prevState, type: select}
     })
   }
-  const onFavClick = (id) => {
-    axios(apiUrl + "&i=" +id).then(({data}) =>{         
-      let results = data;
-      console.log(results)
-
-    setState(prevState => {
-      return {...prevState, favorites:results}
-    })
-    })
-}
+  
+  
 
   const search = () => {    
    axios(apiUrl + "&s=" +state.s+ "&type=" +state.type).then(({data}) =>{         
@@ -72,7 +66,7 @@ function App() {
         {/* create a search component */}
         <Search handleInput={handleInput} search={search} onSelect={onSelect}/>
         {/* create a results component */}
-        <Results results={state.results} openPopup={openPopup} onFavClick={onFavClick}/>
+        <Results results={state.results} openPopup={openPopup}  />
       </header>
     </div>
   );

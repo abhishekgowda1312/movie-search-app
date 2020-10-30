@@ -1,11 +1,12 @@
 import React from 'react'
 
-function Result( {result, onFavClick} ) {
+function Result( {result} ) {
+    console.log(result)
     return (
         <div className="result">
             <img alt="imageH" src={result.Poster}/>
-            <h3>{result.Title} <button onClick={() => onFavClick(result.imdbID)}>fav</button></h3>
-            
+            <h3>{result.Title} <button>fav</button></h3>
+            <h6>Release date: {result.Year}</h6>
         </div>
     )
 }

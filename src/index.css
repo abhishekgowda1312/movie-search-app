@@ -99,6 +99,7 @@ section{
 }
 .search{
   width: 10%;
+  cursor: pointer;
 
   border: none;
   outline: none;
@@ -158,8 +159,20 @@ section{
   background: #445565;
   transition: 04s ease-out;
 }
+.results .result h6{
+  color: #FFF;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px;
+  background: #445565;
+  transition: 04s ease-out;
+}
 
 .results .result:hover h3{
+  background: #FFF;
+  color: #223343
+}
+.results .result:hover h6{
   background: #FFF;
   color: #223343
 }
