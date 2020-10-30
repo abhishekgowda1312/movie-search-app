@@ -4,7 +4,7 @@ function Result( {result, onFavClick} ) {
     return (
         <div className="result">
             <img alt="imageH" src={result.Poster}/>
-            <h3>{result.Title} <button onClick={onFavClick}>fav</button></h3>
+            <h3>{result.Title} <button onClick={() => onFavClick(result.imdbID)}>fav</button></h3>
             
         </div>
     )

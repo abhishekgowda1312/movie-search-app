@@ -1,10 +1,11 @@
 import React from 'react'
 import Result from './Result'
 
-function Results( { results, openPopup } ) {
+function Results( { results, openPopup, onFavClick } ) {
+    
     return (
         <section className="results">
-           {results.map(result => <Result result={result}/>)}
+           {results.map(result => <Result result={result} onFavClick={onFavClick}/>)}
         </section>
     )
 }
