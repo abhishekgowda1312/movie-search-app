@@ -3,6 +3,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import Search from './components/Search'
 import Results from './components/Results'
+import Popup from './components/Popup'
 
 function App() {
   const [state,setState] = useState({
@@ -36,10 +37,19 @@ function App() {
   const search = () => {    
    axios(apiUrl + "&s=" +state.s+ "&type=" +state.type).then(({data}) =>{         
        let results = data.Search;
-         
+        
+
+       if(results !== undefined){
        setState(prevState => {
            return {...prevState, results: results}
        })
+      }else{
+        alert('No matching criteria found')
+        
+      }
+
+    }).catch(err => {
+      console.log(err)
     })    
    }
 
@@ -52,7 +62,11 @@ function App() {
       })
    })
   }
-
+  const closePopup = () => {
+    setState(prevState => {
+      return{ ...prevState, selected: {}}
+    })
+  }
 
   return (
     <div className="App">
@@ -67,6 +81,7 @@ function App() {
         <Search handleInput={handleInput} search={search} onSelect={onSelect}/>
         {/* create a results component */}
         <Results results={state.results} openPopup={openPopup}  />
+        {( typeof state.selected.Title != "undefined")? <Popup selected={state.selected} closePopup={closePopup}/>: false}
       </header>
     </div>
   );

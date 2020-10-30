@@ -6,7 +6,6 @@ function Search( {handleInput, search, onSelect} ) {
             <input type="text" placeholder="Search for a movie..." className="searchBox" onChange={handleInput}/>
             <select className="selectBox" onChange={onSelect}>
                 <option></option>
-                <option>All</option>
                 <option>movie</option>
                 <option>series</option>
                 <option>episodes</option>
