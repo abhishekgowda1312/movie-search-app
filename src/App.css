@@ -1,0 +1,11 @@
+nav{
+  display: flex;
+  color: floralwhite;
+  margin: 0 auto;
+  margin: 20px;
+  justify-content: space-around;
+}
+
+span{
+  cursor: pointer;
+}
